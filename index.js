@@ -11,3 +11,5 @@ app.get('/pomos', async (req, res) => {
   res.json(pomos)
 })
 app.listen(PORT, console.log(`Server started on port ${PORT}`))
+
+module.exports = app
