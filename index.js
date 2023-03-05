@@ -6,7 +6,8 @@ const app = express()
 app.use(express.static('public'))
 
 app.get('/', (req, res) => {
-  res.sendFile('index.html', { root: path.join(__dirname, 'public') });
+  let indexFile = path.join(__dirname, "../public/index.html");
+  res.sendFile(indexFile);
 })
 
 app.get('/pomos', async (req, res) => {
