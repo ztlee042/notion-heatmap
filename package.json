@@ -1,0 +1,17 @@
+{
+  "name": "notion-heatmap",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@notionhq/client": "^2.2.3",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2"
+  }
+}
