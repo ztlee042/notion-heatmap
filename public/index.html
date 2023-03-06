@@ -35,8 +35,8 @@
         label: { text: 'MMM', textAlign: 'middle', position: 'top' },
         subLabel: {
           width: 40,
-          textAlign: 'start',
-          text: () => dayjs.weekdaysShort().map((d, i) => (i % 2 == 0 ? '' : d)),
+          textAlign: 'middle',
+          text: () => dayjs.weekdaysShort().map((d, i) => (i % 2 == 0 ? d : d)),
         },
       },
       subDomain: {
@@ -47,7 +47,10 @@
         label: 'D',
         gutter: 4
       },
-      date: { start: new Date('2023-03-01') },
+      date: {
+        start: new Date('2023-03-01'),
+        timezone: 'Europe/Zurich'
+      },
       range: 10,
       scale: {
         color: {
