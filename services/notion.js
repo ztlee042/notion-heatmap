@@ -34,21 +34,21 @@ module.exports = async function getPomo() {
     }
   })
 
-  const groupByKey = (data, key) => Object.values(
-    data.reduce((res, item) => {
-      const value = item[key] // date
-      const existing = res[value] || { [key]: value, cumPomos: 0 }
-      return {
-        ...res,
-        [value]: {
-          ...existing,
-          cumPomos: existing.cumPomos + item.pomos
-        }
-      }
-    }, {})
-  )
+  // const groupByKey = (data, key) => Object.values(
+  //   data.reduce((res, item) => {
+  //     const value = item[key] // date
+  //     const existing = res[value] || { [key]: value, cumPomos: 0 }
+  //     return {
+  //       ...res,
+  //       [value]: {
+  //         ...existing,
+  //         cumPomos: existing.cumPomos + item.pomos
+  //       }
+  //     }
+  //   }, {})
+  // )
 
-  const groupedPomos = groupByKey(rawPomos, 'date')
+  // const groupedPomos = groupByKey(rawPomos, 'date')
 
-  return groupedPomos
+  return rawPomos
 }
