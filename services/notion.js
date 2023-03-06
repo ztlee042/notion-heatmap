@@ -12,34 +12,34 @@ const today = new Date().toISOString().slice(0, 10)
 module.exports = async function getPomo() {
 
   const { results } = await notion.databases.query({
-    database_id: `${database_id}`
-    // filter: {
-    //   "and": [
-    //     {
-    //       "property": "Date",
-    //       "date": {
-    //         "is_not_empty": true,
-    //         "before": today
-    //       }
-    //     },
-    //     {
-    //       "property": "Status",
-    //       "status": {
-    //         "equals": 'Done'
-    //       }
-    //     },]
-    // },
-    // sorts: [{
-    //   "property": "Date",
-    //   "direction": "ascending"
-    // }]
+    database_id: `${database_id}`,
+    filter: {
+      "and": [
+        {
+          "property": "Date",
+          "date": {
+            "is_not_empty": true,
+            "before": today
+          }
+        },
+        {
+          "property": "Status",
+          "status": {
+            "equals": 'Done'
+          }
+        },]
+    },
+    sorts: [{
+      "property": "Date",
+      "direction": "ascending"
+    }]
   })
 
 
-  const rawData = results.map(page => {
+  const rawPomos = results.map(page => {
     return {
-      "date": new Date(page.properties.Name.title[0].text.content),
-      "sport": page.properties.Sports.select.name
+      "date": page.properties.Date.date.start,
+      "pomos": page.properties['Actual🍅'].number
     }
   })
 
@@ -59,5 +59,5 @@ module.exports = async function getPomo() {
 
   // const groupedPomos = groupByKey(rawPomos, 'date')
 
-  return rawData
+  return rawPomos
 }

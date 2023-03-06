@@ -12,7 +12,7 @@ app.get('/', (req, res) => {
   })
 })
 
-app.get('/api/dailysports', async (req, res) => {
+app.get('/pomos', async (req, res) => {
   const pomos = await getPomos()
   res.json(pomos)
 })
